@@ -4,6 +4,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{41BC54EC-CB9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditSharp.Core", "src\AuditSharp.Core\AuditSharp.Core.csproj", "{8776F127-E240-48DA-ABF8-3163D64E100D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditSharp.EntityFrameworkCore", "src\AuditSharp.EntityFrameworkCore\AuditSharp.EntityFrameworkCore.csproj", "{1A22120C-9D62-4A6F-9782-C45876444CC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -11,11 +13,16 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{8776F127-E240-48DA-ABF8-3163D64E100D} = {41BC54EC-CB94-4945-9A91-DA74698A0F1F}
+		{1A22120C-9D62-4A6F-9782-C45876444CC0} = {41BC54EC-CB94-4945-9A91-DA74698A0F1F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8776F127-E240-48DA-ABF8-3163D64E100D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8776F127-E240-48DA-ABF8-3163D64E100D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8776F127-E240-48DA-ABF8-3163D64E100D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8776F127-E240-48DA-ABF8-3163D64E100D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A22120C-9D62-4A6F-9782-C45876444CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A22120C-9D62-4A6F-9782-C45876444CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A22120C-9D62-4A6F-9782-C45876444CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A22120C-9D62-4A6F-9782-C45876444CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
