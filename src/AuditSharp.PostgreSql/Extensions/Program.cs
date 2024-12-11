@@ -16,6 +16,11 @@ public static class Program
         return services;
     }
 
+    public static void RegisterAuditSharp(this DbContextOptionsBuilder options)
+    {
+        options.AddInterceptors(new Interceptor());
+    }
+
     public static IHost UseAuditSharp(this IHost host)
     {
         using var serviceScope = host.Services.CreateScope();
