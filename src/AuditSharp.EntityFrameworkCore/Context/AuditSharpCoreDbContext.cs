@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AuditSharp.EntityFrameworkCore.Context;
 
-public class AuditSharpCoreDbContext : DbContext
+public class AuditSharpCoreDbContext : DbContext, IAuditSharpContext
 {
     protected AuditSharpCoreDbContext()
     {
@@ -60,5 +60,12 @@ public class AuditSharpCoreDbContext : DbContext
                 .Property(p => p.NewValues)
                 .IsRequired();
         });
+    }
+
+    public async Task InsertAsync<T>(T entity, CancellationToken cancellationToken = default) where T : AuditBase
+    {
+        var entry = Entry(entity);
+        entry.State = EntityState.Added;
+        await SaveChangesAsync(cancellationToken);
     }
 }
