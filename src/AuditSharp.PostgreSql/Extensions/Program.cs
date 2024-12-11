@@ -12,6 +12,7 @@ public static class Program
     {
         services.AddDbContext<AuditSharpPostgreSqlDbContext>(optionsBuilder, ServiceLifetime.Transient, ServiceLifetime.Transient);
         services.AddTransient<IAuditSharpContext>(sp=> sp.GetService<AuditSharpPostgreSqlDbContext>()!);
+        services.Register();
         return services;
     }
 
