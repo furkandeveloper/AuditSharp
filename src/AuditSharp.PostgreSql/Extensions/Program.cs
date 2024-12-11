@@ -1,3 +1,4 @@
+using AuditSharp.EntityFrameworkCore.Context;
 using AuditSharp.PostgreSql.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ public static class Program
     public static IServiceCollection AddAuditSharp(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
     {
         services.AddDbContext<AuditSharpPostgreSqlDbContext>(optionsBuilder, ServiceLifetime.Transient, ServiceLifetime.Transient);
+        services.AddTransient<IAuditSharpContext>(sp=> sp.GetService<AuditSharpPostgreSqlDbContext>()!);
         return services;
     }
 
