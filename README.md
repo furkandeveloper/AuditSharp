@@ -15,6 +15,11 @@ If you liked the project or if **EasyProfiler** helped you, please give a star.
 - [ ] Maria
 - [ ] MySQL
 
+---
+
+### How To Use(?)
+[Documentation](https://github.com/furkandeveloper/AuditSharp/blob/main/how-to-use.md)
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=furkandeveloper/AuditSharp&type=Date)](https://star-history.com/#furkandeveloper/AuditSharp&Date)
