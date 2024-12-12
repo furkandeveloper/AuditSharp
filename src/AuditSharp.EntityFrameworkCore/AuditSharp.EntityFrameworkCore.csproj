@@ -2,6 +2,16 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
+        <Version>1.0.0</Version>
+        <LangVersion>latest</LangVersion>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <RepositoryUrl>https://github.com/furkandeveloper/AuditSharp</RepositoryUrl>
+        <Authors>furkandeveloper</Authors>
+        <Description>This repo, provides audit log for Entity Framework Core</Description>
+        <PackageTags>audit-log, entity-framework-core</PackageTags>
+        <PackageReleaseNotes>
+            🔨 Add AuditLog interceptor for PostgreSQL
+        </PackageReleaseNotes>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
@@ -13,6 +23,13 @@
 
     <ItemGroup>
       <ProjectReference Include="..\AuditSharp.Core\AuditSharp.Core.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Include="audit.png">
+          <Pack>True</Pack>
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
