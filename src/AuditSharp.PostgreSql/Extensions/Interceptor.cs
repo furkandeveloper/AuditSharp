@@ -13,15 +13,33 @@ public class Interceptor : SaveChangesInterceptor
 {
     private readonly List<TrackedChange> _trackedChanges = new();
 
+    public override ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result,
+        CancellationToken cancellationToken = new CancellationToken())
+    {
+        TrackChanges(eventData, result);
+        return base.SavedChangesAsync(eventData, result, cancellationToken);
+    }
+
+    public override ValueTask<InterceptionResult<int>> SavingChangesAsync(DbContextEventData eventData, InterceptionResult<int> result,
+        CancellationToken cancellationToken = new CancellationToken())
+    {
+        ProcessAsync(eventData);
+        return base.SavingChangesAsync(eventData, result, cancellationToken);
+    }
+
     public override InterceptionResult<int> SavingChanges(DbContextEventData eventData, InterceptionResult<int> result)
+    {
+        ProcessAsync(eventData);
+        return base.SavingChanges(eventData, result);
+    }
+
+    private void ProcessAsync(DbContextEventData eventData)
     {
         var context = eventData.Context;
 
-        if (context == null) return base.SavingChanges(eventData, result);
-
         _trackedChanges.Clear();
 
-        foreach (var entry in context.ChangeTracker.Entries().Where(e =>
+        foreach (var entry in context!.ChangeTracker.Entries().Where(e =>
                      e.State == EntityState.Added || e.State == EntityState.Modified || e.State == EntityState.Deleted))
         {
             var oldValues = entry.State == EntityState.Added
@@ -42,11 +60,15 @@ public class Interceptor : SaveChangesInterceptor
                 entry
             ));
         }
-
-        return base.SavingChanges(eventData, result);
     }
 
     public override int SavedChanges(SaveChangesCompletedEventData eventData, int result)
+    {
+        TrackChanges(eventData, result);
+        return base.SavedChanges(eventData, result);
+    }
+
+    private int TrackChanges(SaveChangesCompletedEventData eventData, int result)
     {
         if (_trackedChanges.Count == 0) return result;
 
@@ -79,8 +101,7 @@ public class Interceptor : SaveChangesInterceptor
         }
 
         _trackedChanges.Clear();
-
-        return base.SavedChanges(eventData, result);
+        return result;
     }
 
     private class TrackedChange(
