@@ -15,7 +15,7 @@ dotnet add package AuditSharp.PostgreSql
 ### Configuration
 
 ```csharp
-var host = builder.Configuration.GetValue<string>("{YOUR_CONNECTION_STRINĞ}");
+var host = builder.Configuration.GetValue<string>("{YOUR_CONNECTION_STRING}");
 builder.Services.AddDbContext<YourDbContext>(options => options.UseNpgsql(host).RegisterAuditSharp());
 builder.Services.AddAuditSharp(options =>
 {
