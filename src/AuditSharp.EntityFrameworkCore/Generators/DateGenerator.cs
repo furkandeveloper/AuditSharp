@@ -5,10 +5,10 @@ namespace AuditSharp.EntityFrameworkCore.Generators;
 
 public class DateGenerator : ValueGenerator
 {
+    public override bool GeneratesTemporaryValues => false;
+
     protected override object? NextValue(EntityEntry entry)
     {
         return DateTime.UtcNow;
     }
-
-    public override bool GeneratesTemporaryValues => false;
 }

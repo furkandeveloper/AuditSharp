@@ -5,10 +5,10 @@ namespace AuditSharp.EntityFrameworkCore.Generators;
 
 public class GuidGenerator : ValueGenerator
 {
+    public override bool GeneratesTemporaryValues => false;
+
     protected override object? NextValue(EntityEntry entry)
     {
         return Guid.NewGuid();
     }
-
-    public override bool GeneratesTemporaryValues => false;
 }
