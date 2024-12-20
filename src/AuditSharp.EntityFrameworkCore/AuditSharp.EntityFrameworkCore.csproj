@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
-        <Version>1.0.0</Version>
+        <Version>1.0.2</Version>
         <LangVersion>latest</LangVersion>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <RepositoryUrl>https://github.com/furkandeveloper/AuditSharp</RepositoryUrl>
@@ -10,26 +10,34 @@
         <Description>This repo, provides audit log for Entity Framework Core</Description>
         <PackageTags>audit-log, entity-framework-core</PackageTags>
         <PackageReleaseNotes>
-            🔨 Add AuditLog interceptor for PostgreSQL
+            🔨 Add AuditLog interceptor for MongoDb
+            🔨 Add Auditable implementation
+            🔨 Add User information
         </PackageReleaseNotes>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.10"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="8.0.10"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\AuditSharp.Core\AuditSharp.Core.csproj" />
+        <ProjectReference Include="..\AuditSharp.Core\AuditSharp.Core.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Include="audit.png">
-          <Pack>True</Pack>
-        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      </None>
+        <None Include="audit.png">
+            <Pack>True</Pack>
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Reference Include="Microsoft.AspNetCore.Http.Abstractions">
+            <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.11\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+        </Reference>
     </ItemGroup>
 
 </Project>

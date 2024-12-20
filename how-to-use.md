@@ -1,6 +1,8 @@
 ## How To Use AuditSharp
 
-AuditSharp is a lightweight library for auditing operations in .NET applications. It simplifies tracking changes, recording metadata, and storing audit trails in your application. This document provides step-by-step guidance on how to integrate and use AuditSharp in your project.
+AuditSharp is a lightweight library for auditing operations in .NET applications. It simplifies tracking changes,
+recording metadata, and storing audit trails in your application. This document provides step-by-step guidance on how to
+integrate and use AuditSharp in your project.
 
 ### Installation
 

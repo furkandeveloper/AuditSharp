@@ -7,11 +7,9 @@ public class AuditSharpPostgreSqlDbContext : AuditSharpCoreDbContext
 {
     protected AuditSharpPostgreSqlDbContext()
     {
-        
     }
-    
+
     public AuditSharpPostgreSqlDbContext(DbContextOptions<AuditSharpPostgreSqlDbContext> options) : base(options)
     {
-        
     }
 }

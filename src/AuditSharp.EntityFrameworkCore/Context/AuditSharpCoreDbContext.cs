@@ -8,15 +8,20 @@ public class AuditSharpCoreDbContext : DbContext, IAuditSharpContext
 {
     protected AuditSharpCoreDbContext()
     {
-        
     }
 
     public AuditSharpCoreDbContext(DbContextOptions options) : base(options)
     {
-        
     }
-    
+
     public virtual DbSet<AuditLog> AuditLogs { get; set; }
+
+    public async Task InsertAsync<T>(T entity, CancellationToken cancellationToken = default) where T : AuditBase
+    {
+        var entry = Entry(entity);
+        entry.State = EntityState.Added;
+        await SaveChangesAsync(cancellationToken);
+    }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -60,12 +65,5 @@ public class AuditSharpCoreDbContext : DbContext, IAuditSharpContext
                 .Property(p => p.NewValues)
                 .IsRequired();
         });
-    }
-
-    public async Task InsertAsync<T>(T entity, CancellationToken cancellationToken = default) where T : AuditBase
-    {
-        var entry = Entry(entity);
-        entry.State = EntityState.Added;
-        await SaveChangesAsync(cancellationToken);
     }
 }
