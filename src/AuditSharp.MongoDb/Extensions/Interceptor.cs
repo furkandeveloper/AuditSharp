@@ -22,7 +22,7 @@ public class Interceptor : SaveChangesInterceptor
     public Interceptor(AuditSharpOptions options)
     {
         _options = options;
-        _httpContextAccessor = _options.AuditLogHttpContextAccessor;
+        _httpContextAccessor = IoCManager.Instance.GetRequiredService<IHttpContextAccessor>();
     }
 
     public override ValueTask<int> SavedChangesAsync(SaveChangesCompletedEventData eventData, int result,
@@ -154,7 +154,7 @@ public class Interceptor : SaveChangesInterceptor
                 oldValues,
                 newValues,
                 primaryKeyValue,
-                _httpContextAccessor?.HttpContext?.User?.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "?"
+                _httpContextAccessor?.HttpContext?.User?.Identity?.Name ?? "?"
             ));
         }
 

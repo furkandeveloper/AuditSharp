@@ -7,6 +7,7 @@ using MongoDB.Driver;
 
 using AuditSharp.EntityFrameworkCore;
 using AuditSharp.Sample.DataAccess;
+using AuditSharp.Sample.Middlewares;
 using Microsoft.EntityFrameworkCore;
 #if postgresql
 using AuditSharp.PostgreSql.Extensions;
@@ -31,11 +32,11 @@ public class Startup
         services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         services.AddDbContext<ExampleDbContext>(options =>
         {
-            // TODO: HttpContextAccessor farkli bir yontemle alinabilir.
-            var httpContextAccessor = services.BuildServiceProvider().GetService<IHttpContextAccessor>();
             options.UseInMemoryDatabase("InMemoryDb")
                 .RegisterAuditSharp(new AuditSharpOptions
-                    { IsIgnoreUnchanged = true, AuditLogHttpContextAccessor = httpContextAccessor });
+                {
+                    IsIgnoreUnchanged = true
+                });
         });
 
         services.AddAuditSharp(options =>
@@ -52,9 +53,11 @@ public class Startup
 
     public void Configure(WebApplication app, IWebHostEnvironment env)
     {
+        app.UseMiddleware<DefaultUserMiddleware>();
         app.UseAuditSharp();
         app.UseSwagger();
         app.UseSwaggerUI();
+        app.UseAuthentication();
 
         app.UseHttpsRedirection();
         app.UseAuthorization();
