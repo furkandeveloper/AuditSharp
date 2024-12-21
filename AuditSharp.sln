@@ -12,6 +12,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{DCDBFE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditSharp.Sample.PostgreSql", "..\sample\AuditSharp.Sample.PostgreSql\AuditSharp.Sample.PostgreSql.csproj", "{96CFEAAA-336D-4021-86BE-901EE1F97DF5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditSharp.Sample.SqlServer", "AuditSharp.Sample.SqlServer\AuditSharp.Sample.SqlServer.csproj", "{62E173F1-A900-4CBA-B9D3-A9EEA12F3346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuditSharp.SqlServer", "src\AuditSharp.SqlServer\AuditSharp.SqlServer.csproj", "{8D50F868-3B53-4991-B8C0-3616A556A92A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -22,6 +26,8 @@ Global
 		{1A22120C-9D62-4A6F-9782-C45876444CC0} = {41BC54EC-CB94-4945-9A91-DA74698A0F1F}
 		{333108FB-B1BF-4C42-A8BA-87254AC37AE9} = {41BC54EC-CB94-4945-9A91-DA74698A0F1F}
 		{96CFEAAA-336D-4021-86BE-901EE1F97DF5} = {DCDBFE60-44D2-4C58-B1DA-FD5A31602143}
+		{62E173F1-A900-4CBA-B9D3-A9EEA12F3346} = {DCDBFE60-44D2-4C58-B1DA-FD5A31602143}
+		{8D50F868-3B53-4991-B8C0-3616A556A92A} = {41BC54EC-CB94-4945-9A91-DA74698A0F1F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{8776F127-E240-48DA-ABF8-3163D64E100D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +46,13 @@ Global
 		{96CFEAAA-336D-4021-86BE-901EE1F97DF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{96CFEAAA-336D-4021-86BE-901EE1F97DF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{96CFEAAA-336D-4021-86BE-901EE1F97DF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62E173F1-A900-4CBA-B9D3-A9EEA12F3346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62E173F1-A900-4CBA-B9D3-A9EEA12F3346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62E173F1-A900-4CBA-B9D3-A9EEA12F3346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62E173F1-A900-4CBA-B9D3-A9EEA12F3346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D50F868-3B53-4991-B8C0-3616A556A92A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D50F868-3B53-4991-B8C0-3616A556A92A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D50F868-3B53-4991-B8C0-3616A556A92A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D50F868-3B53-4991-B8C0-3616A556A92A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
