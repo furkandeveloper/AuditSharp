@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AuditSharp.PostgreSql.Extensions;
+namespace AuditSharp.MongoDb.Extensions;
 
 public class Interceptor : SaveChangesInterceptor
 {
@@ -103,6 +103,7 @@ public class Interceptor : SaveChangesInterceptor
     private int TrackChanges(SaveChangesCompletedEventData eventData, int result)
     {
         if (_trackedChanges.Count == 0) return result;
+
 
         var context = eventData.Context;
         if (context == null) return result;
