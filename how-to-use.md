@@ -6,7 +6,11 @@ AuditSharp is a lightweight library for auditing operations in .NET applications
 
 To get started, install AuditSharh vi NuGet:
 
+<details>
+<summary>
 For PostgreSQL
+
+</summary>
 
 ```
 dotnet add package AuditSharp.PostgreSql
@@ -26,6 +30,39 @@ builder.Services.AddAuditSharp(options =>
 ```csharp
 app.UseAuditSharp();
 ```
+</details>
+
+
+<details>
+<summary>
+For SqlServer
+
+</summary>
+
+
+```
+dotnet add package AuditSharp.SqlServer
+```
+
+### Configuration
+
+```csharp
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ??
+throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(connectionString);
+    options.RegisterAuditSharp();
+});
+builder.Services.AddAuditSharp(optionsBuilder => optionsBuilder.UseSqlServer(connectionString));
+```
+
+```csharp
+app.UseAuditSharp();
+```
+
+</details>
+
 
 Everything is ready now. ✅
 
