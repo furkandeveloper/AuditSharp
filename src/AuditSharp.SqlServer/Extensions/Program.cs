@@ -1,5 +1,4 @@
 using AuditSharp.EntityFrameworkCore.Context;
-using AuditSharp.PostgreSql.Extensions;
 using AuditSharp.SqlServer.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;

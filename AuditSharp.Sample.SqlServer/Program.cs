@@ -1,4 +1,3 @@
-using AuditSharp.PostgreSql.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using AuditSharp.Sample.SqlServer.Data;
@@ -19,9 +18,9 @@ public class Program
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseSqlServer(connectionString);
-            options.RegisterAuditSharpSqlServer();
+            options.RegisterAuditSharp();
         });
-        builder.Services.AddAuditSharpSqlServer(optionsBuilder => optionsBuilder.UseSqlServer(connectionString));
+        builder.Services.AddAuditSharp(optionsBuilder => optionsBuilder.UseSqlServer(connectionString));
         builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
         builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -51,7 +50,7 @@ public class Program
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "AuditSharp API v1");
             c.RoutePrefix = "swagger";
         });
-        app.UseAuditSharpSqlServer();
+        app.UseAuditSharp();
         app.UseHttpsRedirection();
         app.UseStaticFiles();
 
