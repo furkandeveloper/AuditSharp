@@ -8,7 +8,7 @@ namespace AuditSharp.PostgreSql.Extensions;
 
 public static class Program
 {
-    public static IServiceCollection AddAuditSharpPostgreSql(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
+    public static IServiceCollection AddAuditSharp(this IServiceCollection services, Action<DbContextOptionsBuilder> optionsBuilder)
     {
         services.AddDbContext<AuditSharpPostgreSqlDbContext>(optionsBuilder, ServiceLifetime.Transient, ServiceLifetime.Transient);
         services.AddTransient<IAuditSharpContext>(sp=> sp.GetService<AuditSharpPostgreSqlDbContext>()!);
@@ -16,12 +16,12 @@ public static class Program
         return services;
     }
 
-    public static void RegisterAuditSharpPostgreSql(this DbContextOptionsBuilder options)
+    public static void RegisterAuditSharp(this DbContextOptionsBuilder options)
     {
         options.AddInterceptors(new Interceptor());
     }
 
-    public static IHost UseAuditSharpPostgreSql(this IHost host)
+    public static IHost UseAuditSharp(this IHost host)
     {
         using var serviceScope = host.Services.CreateScope();
         var context = serviceScope.ServiceProvider.GetService<AuditSharpPostgreSqlDbContext>();
