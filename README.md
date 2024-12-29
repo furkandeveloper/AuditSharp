@@ -11,7 +11,7 @@ If you liked the project or if **EasyProfiler** helped you, please give a star.
 
 ### Supported Databases
 - [x] PostgreSQL
-- [ ] SQL Server
+- [x] SQL Server
 - [ ] Maria
 - [ ] MySQL
 
