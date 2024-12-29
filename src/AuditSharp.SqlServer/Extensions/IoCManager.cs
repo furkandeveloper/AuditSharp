@@ -1,6 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 
-namespace AuditSharp.PostgreSql.Extensions;
+namespace AuditSharp.SqlServer.Extensions;
 
 public static class IoCManager
 {
